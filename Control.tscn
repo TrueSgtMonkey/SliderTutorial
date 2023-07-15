@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Control.gd" type="Script" id=1]
+[ext_resource path="res://TextureProgress.gd" type="Script" id=2]
+[ext_resource path="res://scrollbar_progress.png" type="Texture" id=3]
+[ext_resource path="res://scrollbar_over.png" type="Texture" id=4]
+[ext_resource path="res://scrollbar_under.png" type="Texture" id=5]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureProgress" type="TextureProgress" parent="HBoxContainer"]
+margin_right = 600.0
+margin_bottom = 44.0
+max_value = 3.0
+step = 0.1
+value = 3.0
+texture_under = ExtResource( 5 )
+texture_over = ExtResource( 4 )
+texture_progress = ExtResource( 3 )
+script = ExtResource( 2 )
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+margin_left = 604.0
+margin_right = 638.0
+margin_bottom = 44.0
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer"]
+margin_top = 15.0
+margin_right = 34.0
+margin_bottom = 29.0
+text = "Size: "
+[connection signal="mouse_entered" from="HBoxContainer/TextureProgress" to="." method="_on_TextureProgress_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/TextureProgress" to="." method="_on_TextureProgress_mouse_exited"]

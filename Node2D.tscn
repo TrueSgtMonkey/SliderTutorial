@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Control.tscn" type="PackedScene" id=1]
+[ext_resource path="res://meat_ball.png" type="Texture" id=2]
+[ext_resource path="res://Sprite.gd" type="Script" id=3]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 487.353, 262.747 )
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource( 1 )]
